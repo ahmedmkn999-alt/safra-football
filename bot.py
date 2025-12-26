@@ -1,58 +1,48 @@
 import feedparser
-import os
 
-def get_data():
-    # سحب أخبار رياضية من "يلا كورة" و "في الجول"
-    sources = {
-        'يلا كورة': 'https://www.yallakora.com/News/rss',
-        'في الجول': 'https://www.filgoal.com/section/rss?sectionid=1'
-    }
-    news_html = ""
+def get_news():
+    # سحب أخبار يلا كورة وفي الجول
+    sources = {'يلا كورة': 'https://www.yallakora.com/News/rss', 'في الجول': 'https://www.filgoal.com/section/rss?sectionid=1'}
+    all_news = ""
     for name, url in sources.items():
         feed = feedparser.parse(url)
-        for entry in feed.entries[:4]:
-            news_html += f'''
-            <div class="news-card">
-                <h3>{entry.title}</h3>
-                <a href="{entry.link}" target="_blank" class="news-btn">إقرأ الخبر في {name}</a>
-            </div>'''
-    return news_html
+        for entry in feed.entries[:5]:
+            all_news += f'<div style="background:#1a1a1a; margin:10px; padding:15px; border-radius:10px; border-right:5px solid #ccff00;">'
+            all_news += f'<h3 style="color:#ccff00;">{entry.title}</h3>'
+            all_news += f'<a href="{entry.link}" style="color:#fff; text-decoration:none; font-weight:bold;">إقرأ المزيد في {name}</a></div>'
+    return all_news
 
-def update_site():
-    news = get_data()
-    html_template = f'''
+def update():
+    news = get_news()
+    # الجدول مع التصميم في ملف واحد
+    html = f"""
     <!DOCTYPE html>
     <html lang="ar" dir="rtl">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>صافرة - SAFRA</title>
-        <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <header>
-            <div class="logo">صافرة - SAFRA</div>
-            <nav>
-                <a href="index.html" class="nav-btn active">المباريات</a>
-                <a href="live.html" class="nav-btn">البث المباشر</a>
-            </nav>
+    <body style="background:#000; color:#fff; font-family:sans-serif; margin:0; padding:0;">
+        <header style="background:#ccff00; color:#000; padding:20px; text-align:center;">
+            <h1>صافرة - SAFRA</h1>
+            <nav><a href="live.html" style="color:#000; font-weight:bold;">بث مباشر</a></nav>
         </header>
-        <main>
-            <h2 class="section-title">مباريات اليوم</h2>
-            <div class="match-card">
-                <div class="team">مصر</div>
-                <div class="score">VS</div>
-                <div class="team">جنوب أفريقيا</div>
-                <div class="match-time">17:00</div>
-                <div class="match-info">📍 استاد القاهرة الدولي | ⚖️ الحكم: مصطفى غربال</div>
+        <main style="padding:10px;">
+            <h2 style="color:#ccff00;">مباريات اليوم</h2>
+            <div style="background:#1a1a1a; padding:20px; border-radius:15px; text-align:center; border:1px solid #333;">
+                <div style="font-size:20px;">مصر VS جنوب أفريقيا</div>
+                <div style="font-size:30px; color:#ccff00; font-weight:bold; margin:10px 0;">17:00</div>
+                <div style="color:#888;">📍 استاد القاهرة | ⚖️ مصطفى غربال</div>
             </div>
-            <h2 class="section-title">أحدث الأخبار الرياضية</h2>
+            <h2 style="color:#ccff00;">أحدث الأخبار</h2>
             {news}
         </main>
     </body>
-    </html>'''
+    </html>
+    """
     with open("index.html", "w", encoding="utf-8") as f:
-        f.write(html_template)
+        f.write(html)
 
 if __name__ == "__main__":
-    update_site()
+    update()
