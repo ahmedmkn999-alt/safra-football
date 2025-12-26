@@ -10,12 +10,13 @@ def get_news():
     all_news = ""
     for source_name, url in SOURCES.items():
         feed = feedparser.parse(url)
-        for entry in feed.entries[:5]: # جلب أفضل 5 أخبار
+        # سحب أول 6 أخبار من كل مصدر
+        for entry in feed.entries[:6]:
             all_news += f"""
             <div class="card">
                 <h3>{entry.title}</h3>
-                <p>{entry.summary[:130]}...</p>
-                <a class="btn" href="{entry.link}" target="_blank">فتح في {source_name}</a>
+                <p>{entry.summary[:140]}...</p>
+                <a class="btn" href="{entry.link}" target="_blank">فتح الخبر في {source_name}</a>
             </div>
             """
     return all_news
@@ -28,7 +29,7 @@ def update_site():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>صافرة | Safra</title>
+        <title>صافرة | أخبار الكورة</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -43,7 +44,7 @@ def update_site():
             {news_content}
         </main>
         <footer>
-            موقع صافرة © تحديث آلي كل ساعة
+            موقع صافرة - تحديث آلي كل ساعة
         </footer>
     </body>
     </html>
