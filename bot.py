@@ -1,51 +1,70 @@
-import feedparser
+import requests
+from datetime import datetime, timedelta
 
-# مصادر كورة احترافية فقط
-SOURCES = {
-    'يلا كورة': 'https://www.yallakora.com/News/rss',
-    'في الجول': 'https://www.filgoal.com/section/rss?sectionid=1'
-}
-
-def get_news():
-    all_news = ""
-    for source_name, url in SOURCES.items():
-        feed = feedparser.parse(url)
-        # سحب أول 6 أخبار من كل مصدر
-        for entry in feed.entries[:6]:
-            all_news += f"""
-            <div class="card">
-                <h3>{entry.title}</h3>
-                <p>{entry.summary[:140]}...</p>
-                <a class="btn" href="{entry.link}" target="_blank">فتح الخبر في {source_name}</a>
+def get_matches_data():
+    # في المواقع الاحترافية نستخدم Football API، وهذا كود يحاكي جلب البيانات بدقة
+    today = datetime.now().strftime('%d-%m-%Y')
+    
+    # هيكل بيانات المباراة (يمكنك لاحقاً ربطها بـ API للحصول على بيانات حقيقية لحظية)
+    matches = [
+        {
+            "home": "مصر", "away": "جنوب أفريقيا", "time": "17:00", 
+            "status": "لم تبدأ", "stadium": "استاد القاهرة الدولي", "referee": "مصطفى غربال"
+        }
+    ]
+    
+    html = ""
+    for m in matches:
+        html += f"""
+        <div class="match-card" onclick="toggleDetails('detail-{m['home']}')">
+            <div class="team-box">
+                <span class="team-name">{m['home']}</span>
             </div>
-            """
-    return all_news
+            <div class="score-box">
+                <span class="status-tag">{m['status']}</span>
+                <span class="match-time">{m['time']}</span>
+            </div>
+            <div class="team-box">
+                <span class="team-name">{m['away']}</span>
+            </div>
+            <div class="match-info" id="detail-{m['home']}">
+                <p>📍 الملعب: {m['stadium']}</p>
+                <p>⚖️ الحكم: {m['referee']}</p>
+                <a href="live.html" class="live-btn-small">انتقل للبث المباشر</a>
+            </div>
+        </div>
+        """
+    return html
 
 def update_site():
-    news_content = get_news()
+    matches_html = get_matches_data()
     html_template = f"""
     <!DOCTYPE html>
     <html lang="ar" dir="rtl">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>صافرة | أخبار الكورة</title>
+        <title>صافرة | Safra Football</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
             <div class="logo">صافرة - SAFRA</div>
             <nav>
-                <a href="index.html" class="nav-btn active">الأخبار</a>
-                <a href="live.html" class="nav-btn">بث مباشر</a>
+                <a href="index.html" class="nav-btn active">المباريات</a>
+                <a href="live.html" class="nav-btn">البث المباشر</a>
             </nav>
         </header>
         <main>
-            {news_content}
+            <div class="date-bar">مباريات اليوم - {datetime.now().strftime('%Y-%m-%d')}</div>
+            {matches_html}
         </main>
-        <footer>
-            موقع صافرة - تحديث آلي كل ساعة
-        </footer>
+        <script>
+            function toggleDetails(id) {{
+                var el = document.getElementById(id);
+                el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+            }}
+        </script>
     </body>
     </html>
     """
