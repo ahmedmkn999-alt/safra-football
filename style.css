@@ -1,66 +1,20 @@
 :root {
-    --primary: #ccff00; /* اللون الفسفوري الرياضي */
-    --dark: #000000;
-    --card: #1a1a1a;
+    --primary: #ccff00; /* فسفوري رياضي */
+    --bg: #000000;
+    --card: #121212;
 }
-
-body {
-    background-color: var(--dark);
-    color: white;
-    font-family: sans-serif;
-    margin: 0;
-    direction: rtl;
-}
-
-header {
-    background: var(--primary);
-    padding: 25px 10px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo { color: black; font-size: 28px; font-weight: 900; margin-bottom: 20px; }
-
+body { background: var(--bg); color: white; font-family: sans-serif; margin: 0; direction: rtl; }
+header { background: var(--primary); padding: 20px 10px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+.logo { color: black; font-size: 26px; font-weight: 900; margin-bottom: 15px; }
 nav { display: flex; gap: 10px; padding: 0 10px; }
-
-.nav-item {
-    flex: 1;
-    background: black;
-    color: white;
-    padding: 20px; /* زراير ضخمة للموبايل */
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    text-align: center;
-}
-
-.match-card {
-    background: var(--card);
-    margin: 15px;
-    padding: 25px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    border: 2px solid #333;
-}
-
-.team { font-size: 20px; font-weight: bold; width: 40%; text-align: center; }
-.score { background: var(--primary); color: black; padding: 5px 15px; border-radius: 5px; font-weight: 900; }
-.time { width: 100%; text-align: center; margin-top: 10px; color: var(--primary); font-size: 18px; }
-.info { width: 100%; text-align: center; font-size: 12px; color: #888; margin-top: 10px; }
-
-.news-card {
-    background: #111;
-    margin: 15px;
-    padding: 20px;
-    border-radius: 15px;
-    border-right: 5px solid var(--primary);
-}
-
-h3 { font-size: 18px; margin-bottom: 15px; line-height: 1.5; }
-.read-more { background: var(--primary); color: black; padding: 12px; display: block; text-align: center; border-radius: 10px; text-decoration: none; font-weight: bold; }
+.nav-btn { flex: 1; background: black; color: white; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px; text-align: center; border: 1px solid #333; }
+.nav-btn.active { border-color: white; background: #222; }
+.section-title { padding: 15px; color: var(--primary); font-size: 20px; }
+.match-card { background: var(--card); margin: 10px; padding: 20px; border-radius: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border: 1px solid #222; }
+.team { font-size: 18px; font-weight: bold; width: 40%; text-align: center; }
+.score { background: var(--primary); color: black; padding: 5px 10px; border-radius: 5px; font-weight: 900; }
+.match-time { width: 100%; text-align: center; margin: 10px 0; font-size: 24px; color: var(--primary); font-weight: 900; }
+.match-info { width: 100%; text-align: center; font-size: 12px; color: #888; }
+.news-card { background: var(--card); margin: 10px; padding: 15px; border-radius: 15px; border-right: 5px solid var(--primary); margin-bottom: 15px; }
+h3 { font-size: 18px; line-height: 1.5; margin-bottom: 15px; }
+.news-btn { display: block; background: var(--primary); color: black; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; }
