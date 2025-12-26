@@ -1,0 +1,27 @@
+name: Update Safra News
+
+on:
+  schedule:
+    - cron: '0 * * * *' # هيشتغل كل ساعة
+  workflow_dispatch: # زرار تشغيل يدوي
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Update News
+        run: python bot.py
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Safra-Bot"
+          git config --global user.email "bot@safra.com"
+          git add index.html
+          git commit -m "تحديث تلقائي للأخبار" || exit 0
+          git push
