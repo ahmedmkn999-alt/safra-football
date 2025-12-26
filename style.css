@@ -1,19 +1,17 @@
 :root {
-    --primary: #ccff00; /* لون رياضي واضح */
-    --bg: #0a0a0a;
-    --card: #161616;
+    --primary: #ccff00; /* اللون الفسفوري اللي في صورك */
+    --dark: #121212;
+    --card: #1e1e1e;
 }
 
 body {
-    background-color: var(--bg);
+    background-color: var(--dark);
     color: white;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     direction: rtl;
-    padding-bottom: 50px;
 }
 
-/* هيدر احترافي وزراير كبيرة */
 header {
     background: var(--primary);
     padding: 20px 10px;
@@ -25,43 +23,67 @@ header {
 
 .logo { color: #000; font-size: 26px; font-weight: 900; margin-bottom: 15px; }
 
-nav { display: flex; gap: 10px; padding: 0 10px; }
+nav { display: flex; gap: 10px; }
 
+/* أزرار ضخمة جداً للموبايل */
 .nav-btn {
     flex: 1;
     background: #000;
     color: #fff;
-    padding: 18px; /* زرار كبير جداً للضغط */
+    padding: 22px; 
     border-radius: 15px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
 }
 
-/* كروت الأخبار */
-.card {
-    background: var(--card);
-    margin: 15px;
-    padding: 20px;
-    border-radius: 20px;
-    border-right: 6px solid var(--primary);
+.date-bar {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--primary);
 }
 
-h3 { font-size: 22px; color: var(--primary); margin: 0 0 10px 0; line-height: 1.4; }
+/* كارت المباراة الاحترافي */
+.match-card {
+    background: var(--card);
+    margin: 12px;
+    padding: 20px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #333;
+}
 
-p { font-size: 16px; color: #ccc; line-height: 1.6; }
+.team-box { width: 35%; text-align: center; }
+.team-name { font-size: 18px; font-weight: bold; }
 
-/* زرار فتح الخبر */
-.btn {
+.score-box { width: 30%; text-align: center; }
+.status-tag { display: block; font-size: 12px; color: #aaa; }
+.match-time { font-size: 22px; font-weight: 900; color: var(--primary); }
+
+.match-info {
+    width: 100%;
+    display: none; /* يظهر عند الضغط */
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #444;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.live-btn-small {
     display: block;
     background: var(--primary);
     color: #000;
     text-align: center;
-    padding: 18px;
-    border-radius: 12px;
+    padding: 12px;
+    border-radius: 10px;
     text-decoration: none;
-    font-weight: 900;
-    font-size: 18px;
-    margin-top: 15px;
+    font-weight: bold;
+    margin-top: 10px;
 }
