@@ -1,59 +1,101 @@
 body {
-    background-color: #0f0f0f;
-    color: white;
-    font-family: sans-serif;
+    background-color: #0c0c0c;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding-bottom: 20px;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 header {
-    background: #ccff00;
-    padding: 20px;
+    background-color: #ccff00;
+    padding: 20px 10px;
     text-align: center;
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
-.logo { color: #000; font-size: 28px; font-weight: bold; }
+.logo {
+    color: #000;
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
 
-nav { display: flex; gap: 10px; margin-top: 15px; }
+nav {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 0 10px;
+}
 
 .nav-btn {
-    flex: 1;
     background: #000;
-    color: #ccff00;
-    padding: 15px;
+    color: #fff;
+    padding: 14px 0; /* زيادة الارتفاع لسهولة اللمس */
+    border-radius: 12px;
     text-decoration: none;
-    border-radius: 10px;
+    font-size: 16px;
     font-weight: bold;
-    font-size: 18px; /* زراير كبيرة */
+    flex: 1;
+    text-align: center;
+    border: 1px solid transparent;
 }
 
-.section-title { padding: 15px; color: #ccff00; border-bottom: 1px solid #333; }
+.nav-btn.active {
+    background: #333;
+    border: 1px solid #ccff00;
+}
 
-.match-card {
+main {
+    padding: 10px;
+}
+
+.card {
     background: #1a1a1a;
-    margin: 10px;
+    margin-bottom: 20px;
     padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #333;
-    transition: 0.3s;
+    border-radius: 20px;
+    border-right: 6px solid #ccff00;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-.match-card:active { background: #333; }
+h3 {
+    font-size: 19px;
+    margin-top: 0;
+    color: #ccff00;
+    line-height: 1.4;
+}
 
-.team { font-size: 18px; font-weight: bold; width: 35%; text-align: center; }
+p {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.6;
+}
 
-.score {
+.btn {
+    display: block;
     background: #ccff00;
     color: #000;
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-weight: bold;
+    text-align: center;
+    padding: 15px; /* زيادة حجم زرار الخبر */
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    margin-top: 20px;
+    font-size: 17px;
+    transition: transform 0.1s;
 }
 
-.details { display: none; } /* سيظهر عند الضغط */
+.btn:active {
+    transform: scale(0.98); /* تأثير بسيط عند الضغط */
+}
+
+footer {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    padding: 20px 0;
+}
