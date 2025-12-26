@@ -1,101 +1,110 @@
+/* تصميم احترافي مخصص للموبايل - موقع صافرة */
+:root {
+    --primary-color: #ccff00; /* اللون الفسفوري الرياضي */
+    --bg-dark: #0a0a0a;
+    --card-bg: #161616;
+    --text-main: #ffffff;
+    --text-dim: #b0b0b0;
+}
+
 body {
-    background-color: #0c0c0c;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: 30px;
+    direction: rtl;
 }
 
 header {
-    background-color: #ccff00;
-    padding: 20px 10px;
+    background-color: var(--primary-color);
+    padding: 20px 15px;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .logo {
     color: #000;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 900;
+    letter-spacing: -1px;
     margin-bottom: 15px;
-    text-transform: uppercase;
 }
 
 nav {
     display: flex;
-    justify-content: space-around;
-    gap: 15px;
-    padding: 0 10px;
+    gap: 12px;
 }
 
 .nav-btn {
+    flex: 1;
     background: #000;
     color: #fff;
-    padding: 14px 0; /* زيادة الارتفاع لسهولة اللمس */
+    padding: 15px; /* حجم كبير للضغط بسهولة */
     border-radius: 12px;
     text-decoration: none;
-    font-size: 16px;
     font-weight: bold;
-    flex: 1;
+    font-size: 16px;
     text-align: center;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
 }
 
 .nav-btn.active {
-    background: #333;
-    border: 1px solid #ccff00;
+    border-color: #fff;
+    background: #222;
 }
 
 main {
-    padding: 10px;
+    padding: 15px;
 }
 
 .card {
-    background: #1a1a1a;
+    background: var(--card-bg);
     margin-bottom: 20px;
     padding: 20px;
-    border-radius: 20px;
-    border-right: 6px solid #ccff00;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border-radius: 18px;
+    border-right: 5px solid var(--primary-color);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 h3 {
-    font-size: 19px;
-    margin-top: 0;
-    color: #ccff00;
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
     line-height: 1.4;
 }
 
 p {
     font-size: 15px;
-    color: #ccc;
-    line-height: 1.6;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
 .btn {
     display: block;
-    background: #ccff00;
+    background: var(--primary-color);
     color: #000;
     text-align: center;
-    padding: 15px; /* زيادة حجم زرار الخبر */
-    border-radius: 10px;
+    padding: 16px; /* زرار ضخم للموبايل */
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 800;
-    margin-top: 20px;
-    font-size: 17px;
-    transition: transform 0.1s;
+    font-size: 18px;
+    transition: 0.2s;
 }
 
 .btn:active {
-    transform: scale(0.98); /* تأثير بسيط عند الضغط */
+    transform: scale(0.96);
 }
 
 footer {
     text-align: center;
+    padding: 20px;
     font-size: 13px;
-    color: #555;
-    padding: 20px 0;
-}
+    color: #444;
+    }
+    
