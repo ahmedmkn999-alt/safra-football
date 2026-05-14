@@ -1,26 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة الرياضة الأسطورية</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
-    <!DOCTYPE html>
-    <html lang="ar" dir="rtl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>صافرة - SAFRA</title>
-    </head>
-    <body style="background:#000; color:#fff; font-family:sans-serif; margin:0; padding:0;">
-        <header style="background:#ccff00; color:#000; padding:20px; text-align:center;">
-            <h1>صافرة - SAFRA</h1>
-            <nav><a href="live.html" style="color:#000; font-weight:bold;">بث مباشر</a></nav>
-        </header>
-        <main style="padding:10px;">
-            <h2 style="color:#ccff00;">مباريات اليوم</h2>
-            <div style="background:#1a1a1a; padding:20px; border-radius:15px; text-align:center; border:1px solid #333;">
-                <div style="font-size:20px;">مصر VS جنوب أفريقيا</div>
-                <div style="font-size:30px; color:#ccff00; font-weight:bold; margin:10px 0;">17:00</div>
-                <div style="color:#888;">📍 استاد القاهرة | ⚖️ مصطفى غربال</div>
-            </div>
-            <h2 style="color:#ccff00;">أحدث الأخبار</h2>
-            
-        </main>
-    </body>
-    </html>
-    
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-black text-indigo-600">بوابة الرياضة</h1>
+      <div class="flex gap-4">
+        <a href="#login" class="px-4 py-2 text-indigo-600 font-semibold">تسجيل دخول</a>
+        <a href="#pricing" class="px-5 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">سجل الآن</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-indigo-600 to-purple-600 text-white py-20">
+    <div class="max-w-6xl mx-auto px-6 flex-col md:flex-row items-center gap-10">
+      <div class="flex-1 text-center md:text-right">
+        <h2 class="text-4xl md:text-5xl font-black mb-4 leading-tight">خلي الرياضة لعبة مش عقدة</h2>
+        <p class="text-lg mb-8 text-indigo-100">مع أبلة [اسم خالتك] هتفهم الرياضة بالقصص والتدريبات الذكية. ابتدائي وإعدادي كله هنا.</p>
+        <a href="#pricing" class="inline-block px-8 py-4 bg-white text-indigo-600 rounded-xl font-bold text-lg hover:scale-105 transition">ابدأ مجاناً أول أسبوع</a>
+      </div>
+      <div class="flex-1">
+        <div class="bg-black/20 rounded-2xl aspect-video flex items-center justify-center">
+          <span class="text-white/80">حط فيديو تعريفي هنا</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-12">ليه آلاف الطلبة بيحبونا؟</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <div class="text-4xl mb-4">🎯</div>
+          <h4 class="text-xl font-bold mb-2">شرح مبسط بالقصص</h4>
+          <p class="text-gray-600">مفيش حاجة اسمها مسألة صعبة، كل حاجة بتتفهم بالحكاية.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <div class="text-4xl mb-4">🎮</div>
+          <h4 class="text-xl font-bold mb-2">تعلم باللعب</h4>
+          <p class="text-gray-600">نقاط وشارات وتحديات تخلي ابنك يكمل للآخر.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+          <div class="text-4xl mb-4">📞</div>
+          <h4 class="text-xl font-bold mb-2">لايف أسبوعي</h4>
+          <p class="text-gray-600">ساعة كاملة خالتك بترد على أسئلة الطلبة لايف.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-12">اختر الباقة المناسبة</h3>
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        
+        <!-- Primary -->
+        <div class="bg-white p-8 rounded-2xl shadow-md border-2 border-transparent hover:border-indigo-500 transition">
+          <h4 class="text-2xl font-bold mb-2">المرحلة الابتدائية</h4>
+          <p class="text-gray-500 mb-6">من سنة 4 لـ 6</p>
+          <div class="mb-6">
+            <span class="text-4xl font-black">100</span>
+            <span class="text-gray-600">ج/شهر</span>
+          </div>
+          <ul class="space-y-3 mb-8 text-gray-700">
+            <li>✓ فيديوهات قصيرة لكل درس</li>
+            <li>✓ امتحانات وتصحيح فوري</li>
+            <li>✓ بنك أسئلة لا نهائي</li>
+            <li>✓ تقرير شهري لولي الأمر</li>
+          </ul>
+          <a href="#" class="block text-center py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition">اشترك الآن</a>
+       
